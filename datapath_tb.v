@@ -449,7 +449,7 @@ $display("Check '-' operation");
     #10; 
     loadb = 1'b0; // after loading B, set loadb to zero.
 
-    // step 3 - perform operation of A - B/2 , load into C
+    // step 3 - perform AND operation, load into C
     shift = 2'b00;
     asel = 1'b0;
     bsel = 1'b0;
