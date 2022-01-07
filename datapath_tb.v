@@ -38,20 +38,11 @@ module datapath_tb;
 	write = 1'b1;
 	
 	#10;
-	/*if (R0 !== 16'd7) begin
-		$display("You're bad");
-		err = 1'b1;
-	end*/
 	
 	//second cycle: write 2 to R1 and read from it, while loading the value at R0 to register B AND performs shift operation on it
 	sximm8 = 16'd2;
 	writenum = 3'b001;
 	#10;
-
-	/*if (R1 !== 16'd2) begin
-		$display("You suck ass");
-		err = 1'b1;
-	end*/
 
 	//now read from R0 and load it into B, and shift it left 1 bit
 	write = 1'b0;
