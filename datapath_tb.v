@@ -460,7 +460,7 @@ $display("Check '-' operation");
     loadc = 1'b0;
     loads = 1'b0;
 
-//Checks correct output of datapath out, and ensures N, V, Z is equal to 0.
+	  //Checks correct output of datapath out, and ensures N is equal to 1, while Z and V are equal to 0.
 
     if (datapath_out !== 16'b1100001000000001) begin 
       err = 1; 
@@ -475,7 +475,7 @@ $display("Check '-' operation");
     end
 
     if (N_out !== 1'b1) begin
-		$display("ERROR IN N OUT, WAS %b BUT EXPECTED %b", N_out, 1'b0);
+	    $display("ERROR IN N OUT, WAS %b BUT EXPECTED %b", N_out, 1'b1);
 		err = 1'b1;
 	end
 
