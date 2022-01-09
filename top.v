@@ -2,7 +2,7 @@
 `define MWRITE 2'b10
 `define MNONE 2'b00
 
-module lab7_top(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
+module top(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
 input [3:0] KEY;
 input [9:0] SW;
 output [9:0] LEDR;
@@ -73,13 +73,6 @@ vDFF1 #(8) LED_REG(clk, write_data[7:0], loadOut, LEDR[7:0]);
 
 endmodule
 
-// To ensure Quartus uses the embedded MLAB memory blocks inside the Cyclone
-// V on your DE1-SoC we follow the coding style from in Altera's Quartus II
-// Handbook (QII5V1 2015.05.04) in Chapter 12, ?Recommended HDL Coding Style?
-//
-// 1. "Example 12-11: Verilog Single Clock Simple Dual-Port Synchronous RAM 
-//     with Old Data Read-During-Write Behavior" 
-// 2. "Example 12-29: Verilog HDL RAM Initialized with the readmemb Command"
 
 module RAM(clk,read_address,write_address,write,din,dout);
   parameter data_width = 32; 
