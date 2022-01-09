@@ -15,10 +15,10 @@ wire [1:0] mem_cmd;
 wire o1, o2, loadOut;
 wire equals;
 
-//assign clock to Key0
+//assign clock to Key 0
 assign clk=~KEY[0];
 
-//Assign reset to Key1
+//Assign reset to Key 1
 assign reset=~KEY[1];
 
 //Hex5 bits 0, 3 and 6 represent the Zero, Negative and Overflow flags
