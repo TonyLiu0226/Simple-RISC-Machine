@@ -41,7 +41,7 @@ module cpu(clk,reset,in,out,N,V,Z, mem_cmd, mem_addr);
 	output[8:0] mem_addr; 
 	//assigns pc to 8'b0, followed by the value of the program counter
 	assign pc = {8'b0, PC};
-	//instantiate a vDFF2 for loading instruction into instruction register
+	//instantiate a vDFF for loading instruction into instruction register
 	vDFF1 #(16) instructionRegister(clk, in, load_ir, regOut);
 	
 	//instantiates an instance of the instruction decoder that will drive the input of the FSM and signals to datapath
@@ -57,11 +57,10 @@ module cpu(clk,reset,in,out,N,V,Z, mem_cmd, mem_addr);
                      .PC(pc),  .datapath_out(out), .shift(shift), .ALUop(ALUop)  
                       , .N_out(N), .V_out(V), .Z_out(Z));
 
-	//Lab 6 changes
 	//Instantiates a multiplexer to increment the program counter
 	assign next_PC = reset_PC ? 9'b000000000: next_PC_out_plusOne;
 
-	//instantiate a vDFF3 for loading onto the PC
+	//instantiate a vDFF for loading onto the PC
 	vDFF1 #(9) Program_Counter(clk, next_PC, load_PC, PC);
 
 	//instantiate the incrementer to increment PC after each load into the program counter
@@ -69,8 +68,7 @@ module cpu(clk,reset,in,out,N,V,Z, mem_cmd, mem_addr);
 	
 	//instantiates a multiplexer to drive the output mem_addr
 	assign mem_addr = address_select ? PC: DA; 
-
-	//LAB 6 STAGE 2
+	
 	//instantiates a vDFF to load the data address
 	vDFF1 #(9) Data_Address(clk, out[8:0], load_addr, DA);
 
@@ -275,4 +273,5 @@ module vDFF2(clk,D,Q);
 endmodule
 
 
-
+
+
