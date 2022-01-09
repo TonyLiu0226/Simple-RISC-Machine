@@ -11,7 +11,7 @@ module shifter_tb;
 		//instantiates error to 0 by default
 		err = 1'b0;
 
-		//FIRST TEST CASE: TESTS THE VALUE 16'b1111000011001111 as given in the lab handout
+		//FIRST TEST CASE: TESTS THE VALUE 16'b1111000011001111
 		//tests left shift, shift = 2'b01, expected result 16'b1111000011001111
 		$display("TESTING LEFT SHIFT OPERATION");
 		in = 16'b1111000011001111;
@@ -199,5 +199,6 @@ module shifter_tb;
 		else $display("FAILED");
 	
 	end
-endmodule
+endmodule
+
 		
