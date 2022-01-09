@@ -1,11 +1,11 @@
-module lab7_top_tb;
+module top_tb;
   reg [3:0] KEY;
   reg [9:0] SW;
   wire [9:0] LEDR; 
   wire [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
   reg err;
 
-  lab7_top DUT(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
+  top DUT(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
 
 //sets up clk
   initial forever begin
@@ -69,7 +69,7 @@ module lab7_top_tb;
     if (DUT.CPU.PC !== 9'h8) begin err = 1; $display("FAILED: PC should be 8."); $stop; end
     if (DUT.CPU.DP.REGFILE.R5 !== 16'h1) begin err = 1; $display("FAILED: R5 should be 1 but was %b.", DUT.CPU.DP.REGFILE.R5); $stop; end
 
-    @(posedge DUT.CPU.PC or negedge DUT.CPU.PC);  // wait here until PC changes; autograder expects PC set to 9 *after* executing MVN R3, R2, ASR#1
+    @(posedge DUT.CPU.PC or negedge DUT.CPU.PC);  // wait here until PC changes; testbench expects PC set to 9 *after* executing MVN R3, R2, ASR#1
 
     if (DUT.CPU.PC !== 9'h9) begin err = 1; $display("FAILED: PC should be 9."); $stop; end
     if (DUT.CPU.DP.REGFILE.R3 !== -16'd9) begin err = 1; $display("FAILED: R5 should be -9 but was %b.", DUT.CPU.DP.REGFILE.R3); $stop; end
