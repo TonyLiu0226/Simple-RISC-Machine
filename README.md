@@ -1,5 +1,7 @@
 **SIMPLE RISC MACHINE**
 
+A simple RISC machine with 8 registers, 16-bit instruction decoder, datapath controller, memory, 4 operation ALU, shifter, and overflow detection.
+
 TO IMPLEMENT:
 _You will need to install the most recent edition of modelsim and quartus_
 
