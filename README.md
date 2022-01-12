@@ -2,6 +2,8 @@
 
 A simple RISC machine with 8 registers, 16-bit instruction decoder, datapath controller, memory, 4 operation ALU, shifter, and overflow detection.
 
+Written in verilog, with the instruction files for the testbench written in ARM Assembly.
+
 TO IMPLEMENT:
 _You will need to install the most recent edition of modelsim and quartus_
 
